@@ -31,7 +31,7 @@ const detailPage: FC<Props> = ({
             <View style={{ justifyContent: 'flex-start' }}>
                 <View style={[styles.boxHeadline, { justifyContent: 'flex-start' }]}>
                     <Text style={styles.textHeadline}>ID TRANSAKSI: #{data.key}</Text>
-                    <Image source={require("../assets/clipboard1.png")} style={[styles.icon]} />
+                    <Image source={require("../assets/clipboard.png")} style={[styles.icon]} />
                 </View>
                 <View style={[styles.boxHeadline]}>
                     <Text style={styles.textHeadline}>DETAIL TRANSAKSI</Text>

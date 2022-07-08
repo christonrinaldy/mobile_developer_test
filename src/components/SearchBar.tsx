@@ -1,5 +1,5 @@
 import React, { FC } from "react";
-import { View, StyleSheet, StatusBar, ScrollView, Image, Text, TextInput, Modal, TouchableOpacity } from 'react-native'
+import { View, StyleSheet, Image, Text, TextInput, TouchableOpacity } from 'react-native'
 
 type Props = {
     searchHandler: Function,
@@ -14,9 +14,9 @@ const SearchBar: FC<Props> = ({
     setModalVisible
 }) => {
     return (
-        <View style={{ flex: 1, alignItems: 'center', paddingVertical: 5 }}>
-            <View style={{ flexDirection: "row", justifyContent: "space-between", backgroundColor: 'white', width: '95%', borderRadius: 5 }}>
-                <View style={{ flexDirection: "row", justifyContent: "space-between", alignItems: "center" }}>
+        <View style={[styles.container]}>
+            <View style={[styles.searchBar]}>
+                <View style={[styles.inputText]}>
                     <Image source={require("../assets/search.png")} style={[styles.icon]} />
                     <TextInput
                         onChangeText={(input) => searchHandler(input)}
@@ -34,9 +34,26 @@ const SearchBar: FC<Props> = ({
     )
 }
 const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+        alignItems: 'center',
+        paddingVertical: 5
+    },
+    searchBar: {
+        flexDirection: "row",
+        justifyContent: "space-between",
+        backgroundColor: 'white',
+        width: '95%',
+        borderRadius: 5
+    },
+    inputText: {
+        flexDirection: "row",
+        justifyContent: "space-between",
+        alignItems: "center"
+    },
     sortDropDownTxt: {
         fontWeight: "bold",
-        color: "#CC5500"
+        color: "#ff9100"
     },
     icon: {
         width: 30,

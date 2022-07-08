@@ -21,21 +21,6 @@ type Props = {
     route: DetailPageRouteProp
 }
 
-export type objData = {
-    "account_number": string,
-    "amount": number,
-    "beneficiary_bank": string,
-    "beneficiary_name": string,
-    "completed_at": string,
-    "created_at": string,
-    "fee": number,
-    "id": string,
-    "key": string,
-    "remark": string,
-    "sender_bank": string,
-    "status": string,
-    "unique_code": number
-}
 const detailPage: FC<Props> = ({
     navigation,
     route
@@ -55,7 +40,7 @@ const detailPage: FC<Props> = ({
                     </TouchableOpacity>
                 </View>
             </View>
-            <View style={{ height: 350, flexDirection: "row", backgroundColor: 'white' }}>
+            <View style={[styles.detailContainer]}>
                 <View style={[styles.contentContainer, { paddingLeft: 20 }]}>
                     <View style={{ flex: 1, justifyContent: 'center' }}>
                         <Text style={[styles.textTitle]}>{data.beneficiary_bank.toUpperCase()} → {data.sender_bank.toUpperCase()}</Text>
@@ -88,6 +73,11 @@ const detailPage: FC<Props> = ({
     )
 }
 const styles = StyleSheet.create({
+    detailContainer: { 
+        height: 350, 
+        flexDirection: "row", 
+        backgroundColor: 'white' 
+    },
     textHeadline: {
         color: 'black',
         fontWeight: 'bold',

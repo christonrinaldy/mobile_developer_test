@@ -7,7 +7,7 @@ import SafeAreaView from 'react-native-safe-area-view';
 import { View, StyleSheet, ScrollView, Modal, TouchableOpacity } from 'react-native'
 import TransactionList from "../components/TransactionList";
 import { RootStackParamList } from "../navigations/appstack";
-import SortList from "../components/SortList";
+import SortModal from "../components/SortModal";
 import SearchBar from "../components/SearchBar";
 
 export type objData = {
@@ -170,10 +170,7 @@ const transactionListPage: FC<Props> = ({ navigation }) => {
 
   return (
     <SafeAreaView>
-      <ScrollView
-        contentInsetAdjustmentBehavior="automatic"
-        keyboardShouldPersistTaps="always"
-      >
+      <ScrollView>
         <SearchBar
           sort={sort}
           setModalVisible={setModalVisible}
@@ -192,31 +189,16 @@ const transactionListPage: FC<Props> = ({ navigation }) => {
                   onListPress={onListPress}
                 />
               )
-
             })
           }
         </View>
-        <Modal visible={modalVisible} transparent={true} animationType={"fade"}>
-          <TouchableOpacity style={{ backgroundColor: 'rgba(0,0,0, 0.1)', flex: 1, justifyContent: "center" }} onPress={() => setModalVisible(false)}>
-            <View style={[styles.sortModal]} >
-              {
-                ["URUTKAN", "Nama A-Z", "Nama Z-A", "Tanggal Terbaru", "Tanggal Terlama"].map((val, i) => {
-                  return (
-                    <SortList
-                      title={val}
-                      selected={sort == val ? true : false}
-                      key={i}
-                      onSelected={sortHandler}
-
-                    />
-                  )
-                })
-              }
-            </View>
-          </TouchableOpacity>
-        </Modal>
+        <SortModal
+          sort={sort}
+          setModalVisible={setModalVisible}
+          sortHandler={sortHandler}
+          modalVisible={modalVisible}
+        />
       </ScrollView>
-
     </SafeAreaView >
   )
 }
@@ -238,19 +220,6 @@ const styles = StyleSheet.create({
   icon: {
     width: 30,
     height: 30
-  },
-  sortModal: {
-    backgroundColor: 'white',
-    width: "90%",
-    alignSelf: 'center',
-    zIndex: 1,
-    elevation: 40,
-    borderRadius: 5,
-    paddingHorizontal: 20,
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.8,
-    shadowRadius: 2
   }
 });
 export default transactionListPage

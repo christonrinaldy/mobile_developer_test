@@ -17,7 +17,7 @@ const TransactionList: FC<Props> = ({
 }) => {
   return (
     <TouchableOpacity style={styles.list} onPress={() => onListPress(val)}>
-      <View style={{ width: "2%", backgroundColor: val['status'] == "SUCCESS" ? '#50C878' : '#ff9100' }} />
+      <View style={{ width: "2%", backgroundColor: val['status'] == "SUCCESS" ? '#50C878' : '#ff6d00' }} />
       <View style={{ flex: 1, flexDirection: "row", paddingHorizontal: 20, alignItems: "center" }}>
         <View style={{ flex: 1, flexDirection: 'column' }}>
           <View>
@@ -31,7 +31,7 @@ const TransactionList: FC<Props> = ({
           </View>
         </View>
         <View style={{ width: "32%", justifyContent: 'flex-end', alignItems: 'flex-end' }}>
-          <View style={[styles.statusButton, { borderWidth: val['status'] == "SUCCESS" ? 0 : 2, borderColor: val['status'] == "SUCCESS" ? undefined : '#ff9100', backgroundColor: val['status'] == "SUCCESS" ? '#50C878' : 'white' }]}>
+          <View style={[styles.statusButton, { borderWidth: val['status'] == "SUCCESS" ? 0 : 2, borderColor: val['status'] == "SUCCESS" ? undefined : '#ff6d00', backgroundColor: val['status'] == "SUCCESS" ? '#50C878' : 'white' }]}>
             <Text style={[styles.text2, { color: val['status'] == "SUCCESS" ? 'white' : 'black' }]}>{val['status'] == "SUCCESS" ? "Berhasil" : "Pengecekan"}</Text>
           </View>
         </View>

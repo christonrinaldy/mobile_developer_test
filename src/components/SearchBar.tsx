@@ -53,7 +53,7 @@ const styles = StyleSheet.create({
     },
     sortDropDownTxt: {
         fontWeight: "bold",
-        color: "#ff9100"
+        color: "#ff6d00"
     },
     icon: {
         width: 30,

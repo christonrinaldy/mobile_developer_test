@@ -4,7 +4,7 @@ import { StackNavigationProp } from '@react-navigation/stack';
 import { RouteProp } from '@react-navigation/native';
 
 import SafeAreaView from 'react-native-safe-area-view';
-import { View, StyleSheet, ScrollView, Modal, TouchableOpacity } from 'react-native'
+import { View, StyleSheet, ScrollView } from 'react-native'
 import TransactionList from "../components/TransactionList";
 import { RootStackParamList } from "../navigations/appstack";
 import SortModal from "../components/SortModal";
@@ -177,7 +177,7 @@ const transactionListPage: FC<Props> = ({ navigation }) => {
           searchHandler={searchHandler}
           modalVisible={modalVisible}
         />
-        <View style={{ justifyContent: "center" }}>
+        <View style={[styles.transactionContainer]}>
           {
             filteredData.map((val: objData, index: React.Key | null | undefined) => {
               return (
@@ -203,23 +203,8 @@ const transactionListPage: FC<Props> = ({ navigation }) => {
   )
 }
 const styles = StyleSheet.create({
-  list: {
-    height: 80,
-    backgroundColor: 'white',
-    width: "95%",
-    alignSelf: "center",
-    marginVertical: 5,
-    borderRadius: 5,
-    flexDirection: 'row',
-    overflow: 'hidden'
-  },
-  sortDropDownTxt: {
-    fontWeight: "bold",
-    color: "#CC5500"
-  },
-  icon: {
-    width: 30,
-    height: 30
+  transactionContainer: {
+    justifyContent: "center"
   }
 });
 export default transactionListPage
